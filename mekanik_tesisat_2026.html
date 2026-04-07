@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Tesisat 2026">
+<title>Mekanik Tesisat Ücret Hesabı 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+:root{--g50:#EDFBF3;--g100:#C8F2DC;--g400:#2DB96E;--g500:#1FA85F;--g600:#178A4D;--g700:#0F6236;--ink:#1C3328;--ink2:#3D5C4A;--ink3:#7A9887;--ink4:#B5CCBF;--page:#F4FAF7;--card:#FFFFFF;--line:#DFF0E7;--sh:0 1px 3px rgba(10,31,19,.04),0 4px 14px rgba(10,31,19,.07);--sh2:0 6px 28px rgba(15,98,54,.22);}
+body{font-family:'Nunito',sans-serif;background:var(--page);color:var(--ink);min-height:100vh;}
+.app{max-width:420px;margin:0 auto;padding-bottom:80px;}
+.header{background:linear-gradient(135deg,#2DB96E 0%,#1FA85F 100%);padding:52px 24px 30px;}
+.header-row{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
+.header-icon{width:42px;height:42px;background:rgba(255,255,255,.18);border-radius:13px;display:flex;align-items:center;justify-content:center;}
+.header h1{font-size:19px;font-weight:800;color:#fff;line-height:1.25;letter-spacing:-.2px;}
+.header-sub{font-size:12px;color:rgba(255,255,255,.65);font-weight:500;margin-top:4px;padding-left:54px;}
+.body{padding:0 16px;}
+.sec{margin-top:20px;}
+.sec-label{font-size:11px;font-weight:700;color:var(--ink3);letter-spacing:1px;text-transform:uppercase;padding:0 4px 8px;}
+.card{background:var(--card);border-radius:18px;border:1.5px solid var(--line);box-shadow:var(--sh);overflow:hidden;}
+.field{display:flex;align-items:center;padding:15px 18px;border-bottom:1.5px solid var(--line);gap:12px;}
+.field:last-child{border-bottom:none;}
+.field-ico{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--g50);}
+.field-body{flex:1;}
+.field-label{font-size:13px;font-weight:600;color:var(--ink2);}
+.field-sub{font-size:11.5px;color:var(--ink4);margin-top:2px;font-weight:500;}
+input[type=number]{border:none;background:transparent;font-size:17px;font-weight:700;font-family:'Nunito',sans-serif;color:var(--g500);text-align:right;width:100px;outline:none;}
+input[type=number]::-webkit-inner-spin-button{opacity:.5;}
+select{border:none;background:transparent;font-size:14px;font-weight:700;font-family:'Nunito',sans-serif;color:var(--g500);outline:none;cursor:pointer;max-width:130px;}
+.note-box{background:var(--card);border-radius:16px;border:1.5px solid var(--g100);margin-top:8px;overflow:hidden;box-shadow:var(--sh);}
+.note-top{background:var(--g50);padding:11px 16px;display:flex;align-items:center;gap:10px;border-bottom:1.5px solid var(--g100);}
+.note-badge{background:var(--g400);color:#fff;font-size:11px;font-weight:800;padding:3px 11px;border-radius:20px;white-space:nowrap;}
+.note-top-label{font-size:12px;font-weight:600;color:var(--ink2);}
+.note-body{padding:13px 16px;}
+.note-tag{display:inline-block;background:var(--g100);color:var(--g700);font-size:11px;font-weight:700;padding:4px 11px;border-radius:20px;margin-bottom:9px;}
+.note-text{font-size:13px;color:var(--ink2);line-height:1.72;font-weight:400;}
+@keyframes noteIn{from{opacity:0;transform:translateY(5px);}to{opacity:1;transform:translateY(0);}}
+.note-box{animation:noteIn .22s ease both;}
+.stp{display:flex;align-items:center;gap:6px;}
+.sbtn{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--g50);color:var(--g600);font-size:20px;font-weight:400;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:'Nunito',sans-serif;line-height:1;}
+.sbtn:active{transform:scale(.92);}
+.snum{font-size:18px;font-weight:800;color:var(--ink);min-width:26px;text-align:center;}
+.bina-chip{display:flex;align-items:center;gap:7px;background:var(--g50);border-top:1.5px solid var(--g100);padding:10px 18px;}
+.bina-chip-txt{font-size:12px;color:var(--ink3);font-weight:500;}
+.bina-chip-val{font-size:12px;font-weight:800;color:var(--g500);}
+.tog{width:46px;height:26px;background:#C8D8CE;border-radius:13px;position:relative;cursor:pointer;transition:background .25s;flex-shrink:0;}
+.tog.on{background:var(--g400);}
+.tog::after{content:'';position:absolute;width:20px;height:20px;background:#fff;border-radius:50%;top:3px;left:3px;transition:transform .25s;box-shadow:0 1px 4px rgba(0,0,0,.2);}
+.tog.on::after{transform:translateX(20px);}
+.cta{margin:26px 16px 0;}
+.cta-btn{width:100%;padding:17px;background:var(--g700);color:#fff;border:none;border-radius:16px;font-size:16px;font-weight:800;font-family:'Nunito',sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 5px 22px rgba(15,98,54,.38);}
+.cta-btn:active{transform:scale(.98);}
+.cta-ico{width:28px;height:28px;background:rgba(255,255,255,.18);border-radius:9px;display:flex;align-items:center;justify-content:center;}
+.res-wrap{padding:0 16px;margin-top:24px;}
+.res-hero{background:linear-gradient(145deg,#178A4D 0%,#0F6236 100%);border-radius:20px;padding:22px;box-shadow:var(--sh2);position:relative;overflow:hidden;}
+.res-hero::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.06);top:-60px;right:-50px;pointer-events:none;}
+.rh-chip{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-size:11px;font-weight:700;padding:3px 11px;border-radius:20px;margin-bottom:12px;}
+.rh-lbl{font-size:11px;font-weight:600;color:rgba(255,255,255,.55);letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px;}
+.rh-amount{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.8px;line-height:1;}
+.rh-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:7px;font-weight:500;}
+.rh-div{height:1px;background:rgba(255,255,255,.12);margin:16px 0;}
+.rh-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.rh-cell{background:rgba(255,255,255,.09);border-radius:11px;padding:10px 12px;}
+.rh-cl{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;}
+.rh-cv{font-size:13px;font-weight:800;color:#fff;}
+.bk-card{background:var(--card);border-radius:18px;border:1.5px solid var(--line);box-shadow:var(--sh);margin-top:10px;padding:18px;}
+.bk-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;}
+.bk-l{font-size:14px;color:var(--ink3);font-weight:500;}
+.bk-v{font-size:14px;font-weight:700;color:var(--ink);}
+.bk-sep{height:1.5px;background:var(--line);margin:8px 0;}
+.bk-l.tot{font-weight:700;color:var(--ink);}
+.bk-v.tot{font-size:16px;font-weight:800;color:var(--g600);}
+.kirim-card{background:var(--card);border-radius:18px;border:1.5px solid var(--line);box-shadow:var(--sh);margin-top:10px;padding:18px;}
+.kirim-ttl{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;}
+.kirim-sub{font-size:11px;color:var(--ink3);font-weight:500;margin-left:5px;}
+.kirim-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.ki{background:var(--g50);border:1.5px solid var(--g100);border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center;}
+.ki-r{font-size:11px;font-weight:700;color:var(--g600);letter-spacing:.3px;}
+.ki-v{font-size:13px;font-weight:800;color:var(--ink);}
+.hidden{display:none;}
+@keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+.anim{animation:up .38s cubic-bezier(.16,1,.3,1) both;}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="header">
+  <div class="header-row">
+    <div class="header-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <h1>Mekanik Tesisat<br>Ücret Hesabı 2026</h1>
+  </div>
+  <div class="header-sub">TMMOB · MMO · Proje Asgari Ücretleri</div>
+</div>
+<div class="body">
+<div class="sec">
+  <div class="sec-label">Proje Bilgileri</div>
+  <div class="card">
+    <div class="field">
+      <div class="field-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--g500)" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+      <div class="field-body"><div class="field-label">İnşaat Alanı</div></div>
+      <input type="number" id="alan" value="14000" min="250" max="80000" step="50">
+      <span style="font-size:13px;color:var(--ink3);font-weight:600;margin-left:3px;">m²</span>
+    </div>
+    <div class="field">
+      <div class="field-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--g500)" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="field-body"><div class="field-label">Tesisat Sınıfı</div></div>
+      <select id="sinif" onchange="updateNote()">
+        <option value="0">1. Sınıf</option><option value="1">2. Sınıf</option><option value="2">3A Sınıf</option><option value="3">3B Sınıf</option><option value="4" selected>4A Sınıf</option><option value="5">4B Sınıf</option><option value="6">4C Sınıf</option><option value="7">5A Sınıf</option><option value="8">5B Sınıf</option><option value="9">5C Sınıf</option><option value="10">5D Sınıf</option>
+      </select>
+    </div>
+  </div>
+  <div id="note-box" class="note-box"></div>
+</div>
+<div class="sec">
+  <div class="sec-label">Bina Tip Uygulama</div>
+  <div class="card">
+    <div class="field">
+      <div class="field-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--g500)" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="10" height="14" rx="2"/><rect x="12" y="3" width="10" height="18" rx="2"/></svg></div>
+      <div class="field-body"><div class="field-label">Bina Adedi</div><div class="field-sub">Müteakip binalar %50 indirimli</div></div>
+      <div class="stp">
+        <button class="sbtn" onclick="stepBina(-1)">−</button>
+        <span class="snum" id="bina_v">1</span>
+        <button class="sbtn" onclick="stepBina(1)">+</button>
+      </div>
+    </div>
+    <div class="bina-chip" id="bina-chip" style="display:none;">
+      <span class="bina-chip-txt">1 tam ücret +</span>
+      <span class="bina-chip-val" id="bina-chip-val"></span>
+    </div>
+  </div>
+</div>
+<div class="sec">
+  <div class="sec-label">Seçenekler</div>
+  <div class="card">
+    <div class="field">
+      <div class="field-ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--g500)" stroke-width="2" stroke-linecap="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+      <div class="field-body"><div class="field-label">Kısmi Tadilat Projesi</div><div class="field-sub">Ücret yarıya düşer</div></div>
+      <div class="tog" id="kismi_tog" onclick="tog('kismi')"></div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="cta">
+  <button class="cta-btn" onclick="hesapla()">
+    <span>Hesaplamayı Başlat</span>
+    <div class="cta-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+  </button>
+</div>
+<div id="results" class="hidden">
+<div class="res-wrap">
+  <div class="res-hero anim">
+    <div class="rh-chip" id="r-chip">4A SINIFI · 1 BİNA</div>
+    <div class="rh-lbl">Proje Asg. Fatura Bedeli (KDV Dahil)</div>
+    <div class="rh-amount" id="r-toplam-num">—</div>
+    <div class="rh-sub" id="r-sub">—</div>
+    <div class="rh-div"></div>
+    <div class="rh-grid">
+      <div class="rh-cell"><div class="rh-cl">Fatura Bedeli</div><div class="rh-cv" id="r-ara-m">—</div></div>
+      <div class="rh-cell"><div class="rh-cl">KDV %18</div><div class="rh-cv" id="r-kdv-m">—</div></div>
+      <div class="rh-cell"><div class="rh-cl">Bina</div><div class="rh-cv" id="r-bina-m">—</div></div>
+    </div>
+  </div>
+  <div class="bk-card anim" style="animation-delay:.07s">
+    <div class="bk-row"><span class="bk-l">Proje Asg. Fatura Bedeli</span><span class="bk-v" id="r-b1">—</span></div>
+    <div class="bk-row" id="r-ext-row" style="display:none"><span class="bk-l" id="r-ext-lbl">Müteakip Binalar (%50)</span><span class="bk-v" id="r-ext">—</span></div>
+    <div class="bk-row"><span class="bk-l">KDV Hariç Ara Toplam</span><span class="bk-v" id="r-ara">—</span></div>
+    <div class="bk-row"><span class="bk-l">KDV (%18)</span><span class="bk-v" id="r-kdv">—</span></div>
+    <div class="bk-sep"></div>
+    <div class="bk-row"><span class="bk-l tot">KDV Dahil Toplam</span><span class="bk-v tot" id="r-top">—</span></div>
+  </div>
+  <div class="kirim-card anim" style="animation-delay:.14s">
+    <div class="kirim-ttl">Kırım Seçenekleri <span class="kirim-sub">KDV Hariç</span></div>
+    <div class="kirim-grid" id="kirim-grid"></div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+const NOTLAR=[{sinif:"1. Sınıf",tesisat:"Sıhhi tesisat, foseptik, ısı yalıtım projesi",aciklama:"Ahır, kümes, samanlık gibi basit tarım yapıları; transformatör binaları; açık spor salonları; 1.000 m²'ye kadar depolar ve silolar; sadece temiz su ve yağmur tesisatı olan basit fabrika ve imalat binaları; 2 katlı ve 200 m²'yi geçmeyen basit konut yapıları; brüt alanı 500 m²'yi geçmeyen basit büro, işhanı ve idare binaları ve benzeri yapılar."},{sinif:"2. Sınıf",tesisat:"Güneş enerjisi, hidrofor, basınçlı hava, yangın, arıtma tesisatı",aciklama:"Konut binaları, büro-işhanı ve idare binaları, düşük tehlikeli yangın sınıfına giren fabrika ve imalat binaları, akaryakıt istasyonu ve yıkama-yağlama binaları, lokantalar, pazar ve fuar yerleri, küçük sanayi siteleri, köy okulları ve benzeri yapılar."},{sinif:"3A Sınıf",tesisat:"Radyatörlü kalorifer, kat kaloriferi, basit havalandırma, kısmi buhar, sanayi tipi mutfak-çamaşırhane",aciklama:"Kat kaloriferli normal konut binaları; 500 m²'ye kadar büro, işhanı ve idare binaları; 1.000 m²'ye kadar orta tehlikeli atölye ve imalat binaları; 500 m²'ye kadar basit spor tesisleri; küçük sanayi siteleri; 1.000 m²'ye kadar ilk ve ortaöğretim binaları; sağlık ocakları; dispanserler ve benzeri yapılar."},{sinif:"3B Sınıf",tesisat:"Merkezi kalorifer, basit havalandırma, kısmi buhar, sanayi tipi mutfak-çamaşırhane",aciklama:"Merkezi kaloriferli normal konut binaları; 500 m²'den büyük büro, işhanı ve idare binaları; 1.000 m²'den büyük yüksek tehlikeli fabrika ve atölyeler; 500 m²'den büyük spor tesisleri; 3 yıldıza kadar oteller ve moteller; yurtlar, misafirhaneler, yatılı okullar, kültür tesisleri, askerlik-emniyet binaları, mağazalar, otoparklar, tüneller ve benzeri yapılar."},{sinif:"4A Sınıf",tesisat:"Havalandırma, döşemeden ısıtma, kızgın su, buhar, hijyenik klima, hacmin %50'sine kadar klima",aciklama:"Huzurevleri, kreş ve gündüz bakımevleri, il ve ilçe hükümet konakları, kaymakam evleri, hamam ve banyolar, açık yüzme havuzları, özelliği olan büyük okul yapıları, stadyumlar, özel amaçlı yapılar, otobüs terminalleri, demiryolu istasyonları, akaryakıt ve LPG dolum tesisleri ve benzeri yapılar."},{sinif:"4B Sınıf",tesisat:"Havalandırma, döşemeden ısıtma, kızgın su, buhar, hijyenik klima, hacmin %50'sine kadar klima",aciklama:"Yüksek nitelikli ısı merkezleri, kapalı spor tesisleri, kapalı yüzme havuzları, yüksek öğrenim yurtları, üniversiteler ve yüksek okullar, büyük mağazalar ve süpermarketler, banka-borsa-sigorta binaları, büyük postaneler, kütüphaneler, tiyatro ve sinema binaları, kaplıca ve şifa evleri, fabrika ve sanayi tesisleri, terminaller ve benzeri yapılar."},{sinif:"4C Sınıf",tesisat:"Havalandırma, döşemeden ısıtma, kızgın su, buhar, hijyenik klima, hacmin %50'sine kadar klima",aciklama:"3 yıldızlı otel ve moteller, büyük kütüphane ve kültür yapıları, radyo ve televizyon binaları, orduevleri, eski eser restorasyonları, büyük adliye binaları, laboratuvarlar, mezbahalar ve soğuk depolar, tıp merkezleri, ayakta tedavi merkezleri, küçük sağlık tesisleri, son kat tavan kotu 30.80 m'yi geçen yüksek yapılar ve benzeri yapılar."},{sinif:"5A Sınıf",tesisat:"Sauna, yüzme havuzu, hijyenik klima, medikal gaz ve benzeri konfor sağlayıcı tesisatlar",aciklama:"4 yıldızlı otel, motel ve tatil köyleri, özellikli sanayi tesisleri, büyükelçilik yapıları, vali evleri, üst düzey yönetici evleri, eski eser restorasyonları ve benzeri yapılar."},{sinif:"5B Sınıf",tesisat:"Sauna, yüzme havuzu, hijyenik klima, medikal gaz ve benzeri konfor sağlayıcı tesisatlar",aciklama:"Kongre merkezleri, komple sahne tesisi olan tiyatro ve opera binaları ile konser salonları, bölgesel ısıtma tesisleri bulunan büyük kampüs veya site kompleksleri, bilgi işlem merkezleri, soğuk hava depoları ve benzeri yapılar."},{sinif:"5C Sınıf",tesisat:"Sauna, yüzme havuzu, hijyenik klima, medikal gaz ve benzeri konfor sağlayıcı tesisatlar",aciklama:"5 yıldızlı lüks oteller, tatil köyleri, orduevleri, radyo ve televizyon binaları, lüks lokantalar, et entegre tesisleri, buz üretme ve şok tesisi ilaveli soğuk hava depoları, olimpik kapalı yüzme havuzları ve benzeri yapılar."},{sinif:"5D Sınıf",tesisat:"Sauna, yüzme havuzu, hijyenik klima, medikal gaz ve benzeri konfor sağlayıcı tesisatlar",aciklama:"Çok çeşitli tesisatı olan anıt ve eski eser restorasyonları, ilaç fabrikaları ve hijyenik üretim tesisleri, hastaneler, hava limanları ve benzeri yapılar."}];
+const F={250:[22942,77031,135878,144456,226478,290269,346781,349917,362311,402797,442044],300:[26964,90750,160380,170505,236463,303066,362070,414183,428853,476775,523230],400:[34440,116500,206712,219762,305762,391884,468180,536998,556018,618150,678380],500:[41160,140000,249480,265230,370300,474600,567000,652190,675290,750750,823900],600:[47124,161250,288684,306909,430077,551214,658530,759759,786669,874575,959790],700:[52332,180250,324324,344799,485093,621726,742770,859705,890155,989625,1086050],800:[56784,197000,356400,378900,535348,686136,819720,952028,985748,1095900,1202680],900:[60480,211500,384912,409212,580842,744444,889380,1036728,1073448,1193400,1309680],1000:[63420,223750,409860,435735,621575,796650,951750,1113805,1153255,1282125,1407050],1500:[88830,313125,571725,607819,866899,1111072,1327388,1550010,1604910,1784250,1958100],2000:[110040,386250,704880,749380,1068580,1369560,1636200,1905750,1973250,2193750,2407500],2500:[127050,443750,809325,860419,1223312,1567875,1873125,2181025,2258275,2510625,2755250],3000:[146790,513750,932580,991455,1408462,1805175,2156625,2509238,2598112,2888438,3169875],3500:[165375,575312,1042965,1108809,1573775,2017050,2409750,2794041,2893004,3216281,3529662],4000:[181440,632500,1140480,1212480,1713960,2196720,2624400,3049200,3157200,3510000,3852000],4500:[197505,680625,1225125,1302469,1838936,2356898,2815762,3258832,3374258,3751312,4116825],5000:[210000,721875,1296900,1378775,1937462,2483175,2966625,3430350,3551850,3948750,4333500],6000:[241920,828750,1485000,1578750,2213865,2837430,3389850,3913140,4051740,4504500,4943400],7000:[270480,923125,1649340,1753465,2462495,3156090,3770550,4328170,4481470,4982250,5467700],8000:[297360,1015000,1805760,1919760,2687320,3444240,4114800,4726260,4893660,5440500,5970600],9000:[326970,1108125,1969110,2093422,2928015,3752730,4483350,5145525,5327775,5923125,6500250],10000:[354900,1193750,2128500,2262875,3081425,3949350,4718250,5526675,5722425,6361875,6981750],12500:[412125,1398438,2475000,2631250,3653406,4682438,5594062,6405438,6632312,7373438,8091875],15000:[469350,1575000,2776950,2952262,4106362,5262975,6287625,7210088,7465462,8299688,9108375],17500:[518175,1728125,3049200,3241700,4489888,5754525,6874875,7855925,8134175,9043125,9924250],20000:[562800,1887500,3306600,3515350,4866800,6237600,7452000,8470000,8770000,9750000,10700000],22500:[604800,2010938,3497175,3717956,5147831,6597788,7882312,8957025,9274275,10310625,11315250],25000:[640500,2109375,3712500,3946875,5422250,6949500,8302500,9475812,9811438,10907812,11970625],27500:[669900,2217188,3865950,4110012,5637156,7224938,8631562,9782850,10129350,11261250,12358500],30000:[693000,2287500,4009500,4262625,5832225,7474950,8930250,10227525,10589775,11773125,12920250],32500:[716625,2396875,4214925,4481019,6189300,7932600,9477000,10804544,11187231,12437344,13649188],35000:[742350,2493750,4365900,4641525,6433962,8246175,9851625,11190988,11587362,12882188,14137375],37500:[771750,2578125,4529250,4815188,6645562,8517375,10175625,11593312,12003938,13345312,14645625],40000:[798000,2675000,4672800,4967800,6877000,8814000,10530000,11942700,12365700,13747500,15087000],42500:[821100,2762500,4838625,5144094,7081988,9076725,10843875,12329144,12765831,14192344,15575188],45000:[841050,2840625,4945050,5257238,7320038,9381825,11208375,12673238,13122112,14588438,16009875],47500:[867825,2909375,5078700,5399325,7475431,9580988,11446312,13075562,13538688,15051562,16518125],50000:[892500,3000000,5197500,5525625,7670500,9831000,11745000,13340250,13812750,15356250,16852500],55000:[935550,3128125,5445000,5788750,8073863,10347975,12362625,13975500,14470500,16087500,17655000],60000:[970200,3262500,5702400,6062400,8411100,10780200,12879000,14610750,15128250,16818750,18457500],65000:[1010100,3412500,5984550,6362362,8768175,11237850,13425750,15277763,15818888,17586563,19300125],70000:[1058400,3543750,6167700,6557075,9072350,11627700,13891500,15860075,16421825,18256875,20035750],75000:[1086750,3656250,6385500,6788625,9422812,12076875,14428125,16357688,16937062,18829688,20664375],80000:[1125600,3750000,6573600,6988600,9733600,12475200,14904000,16940000,17540000,19500000,21400000]};
+const KS=Object.keys(F).map(Number).sort((a,b)=>a-b);
+const SN=['1. Sınıf','2. Sınıf','3A Sınıf','3B Sınıf','4A Sınıf','4B Sınıf','4C Sınıf','5A Sınıf','5B Sınıf','5C Sınıf','5D Sınıf'];
+let binaAdet=1;const tg={kismi:false};
+function updateNote(){const i=parseInt(document.getElementById('sinif').value);const n=NOTLAR[i];const b=document.getElementById('note-box');b.innerHTML=`<div class="note-top"><span class="note-badge">${n.sinif}</span><span class="note-top-label">Sınıf Kapsamı</span></div><div class="note-body"><span class="note-tag">${n.tesisat}</span><p class="note-text">${n.aciklama}</p></div>`;b.style.animation='none';b.offsetHeight;b.style.animation='';}
+function stepBina(d){binaAdet=Math.max(1,Math.min(20,binaAdet+d));document.getElementById('bina_v').textContent=binaAdet;const c=document.getElementById('bina-chip');if(binaAdet>1){c.style.display='flex';document.getElementById('bina-chip-val').textContent=`${binaAdet-1} adet %50 indirimli`;}else c.style.display='none';}
+function tog(id){tg[id]=!tg[id];document.getElementById(id+'_tog').classList.toggle('on',tg[id]);}
+function interp(a,c){a=Math.max(250,Math.min(80000,a));for(let i=0;i<KS.length-1;i++){const k0=KS[i],k1=KS[i+1];if(a>=k0&&a<=k1){const t=(a-k0)/(k1-k0);return F[k0][c]+t*(F[k1][c]-F[k0][c]);}}return a<=KS[0]?F[KS[0]][c]:F[KS[KS.length-1]][c];}
+function fmt(n){return Math.round(n).toLocaleString('tr-TR');}
+function fmtTL(n){return fmt(n)+' TL';}
+function hesapla(){
+  const alan=parseFloat(document.getElementById('alan').value)||0;
+  const sinif=parseInt(document.getElementById('sinif').value);
+  if(alan<250||alan>80000){alert('Alan 250 – 80.000 m² arasında olmalıdır.');return;}
+  // Proje Asg. Fatura Bedeli = Uygulama Projesi = %50 x Proje Hizmetleri Toplam
+  let tek=interp(alan,sinif)*0.5;
+  if(tg.kismi)tek/=2;
+  const mut=(binaAdet-1)*tek*0.5;
+  const ara=tek+mut;
+  const kdv=ara*0.18;
+  const top=ara+kdv;
+  document.getElementById('r-chip').textContent=SN[sinif].toUpperCase()+' · '+binaAdet+' BİNA';
+  document.getElementById('r-toplam-num').textContent=fmt(top)+' TL';
+  document.getElementById('r-sub').textContent='KDV: '+fmtTL(kdv)+'  ·  Hariç: '+fmtTL(ara);
+  document.getElementById('r-ara-m').textContent=fmtTL(ara);
+  document.getElementById('r-kdv-m').textContent=fmtTL(kdv);
+  document.getElementById('r-bina-m').textContent=binaAdet+' adet';
+  document.getElementById('r-b1').textContent=fmtTL(tek);
+  document.getElementById('r-ara').textContent=fmtTL(ara);
+  document.getElementById('r-kdv').textContent=fmtTL(kdv);
+  document.getElementById('r-top').textContent=fmtTL(top);
+  const er=document.getElementById('r-ext-row');
+  if(binaAdet>1){er.style.display='flex';document.getElementById('r-ext-lbl').textContent=`Müteakip ${binaAdet-1} Bina (%50)`;document.getElementById('r-ext').textContent=fmtTL(mut);}
+  else er.style.display='none';
+  const rates=[
+    {l:'%50 Kırım',v:ara*0.50},{l:'%60 Kırım',v:ara*0.40},
+    {l:'%70 Kırım',v:ara*0.30},{l:'%75 Kırım',v:ara*0.25},
+    {l:'%80 Kırım',v:ara*0.20},{l:'%85 Kırım',v:ara*0.15},
+    {l:'%90 Kırım',v:ara*0.10},{l:'%92,5 Kırım',v:ara*0.075},
+    {l:'%95 Kırım',v:ara*0.05},
+    {l:'Fason (%2,75)',v:ara*0.0275},{l:'Fason (%3)',v:ara*0.03}
+  ];
+  document.getElementById('kirim-grid').innerHTML=rates.map(k=>`<div class="ki"><span class="ki-r">${k.l}</span><span class="ki-v">${fmt(k.v)} TL</span></div>`).join('');
+  const res=document.getElementById('results');res.classList.remove('hidden');
+  setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
+updateNote();
+</script>
+</body>
+</html>
